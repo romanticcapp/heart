@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>باسورد هارت ❤🗝</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  height:100vh;
+  overflow:hidden;
+  font-family: Arial, sans-serif;
+  direction: rtl;
+  background: linear-gradient(135deg,#120814,#3a0f2e,#7a163f);
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* ورود متحركة */
+.rose{
+  position:fixed;
+  top:-10%;
+  font-size:22px;
+  animation: fall linear infinite;
+  opacity:.8;
+}
+@keyframes fall{
+  to{
+    transform: translateY(120vh) rotate(360deg);
+  }
+}
+
+.card{
+  background: rgba(0,0,0,.65);
+  backdrop-filter: blur(10px);
+  padding:28px;
+  border-radius:22px;
+  width:92%;
+  max-width:380px;
+  text-align:center;
+  box-shadow: 0 0 35px rgba(255,0,90,.45);
+  z-index:2;
+}
+
+.lock{font-size:46px;margin-bottom:6px}
+
+input{
+  width:100%;
+  padding:14px;
+  margin-top:14px;
+  border-radius:12px;
+  border:none;
+  font-size:16px;
+  text-align:center;
+}
+
+button{
+  width:100%;
+  padding:15px;
+  margin-top:18px;
+  background:#e11d48;
+  color:#fff;
+  font-size:18px;
+  border:none;
+  border-radius:15px;
+  cursor:pointer;
+}
+
+#content{display:none}
+
+.typing{
+  margin-top:10px;
+  line-height:1.9;
+  min-height:140px;
+  font-size:17px;
+}
+
+iframe{
+  width:100%;
+  height:230px;
+  margin-top:15px;
+  border-radius:15px;
+  border:none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ورود -->
+<script>
+for(let i=0;i<30;i++){
+  let r=document.createElement("div");
+  r.className="rose";
+  r.innerHTML="🌹";
+  r.style.left=Math.random()*100+"%";
+  r.style.animationDuration=(6+Math.random()*6)+"s";
+  r.style.fontSize=(18+Math.random()*18)+"px";
+  document.body.appendChild(r);
+}
+</script>
+
+<div class="card" id="login">
+  <div class="lock">🔒</div>
+  <h2>باسورد هارت ❤🗝</h2>
+  <p>ادخل كلمة المرور</p>
+  <input type="password" id="pass" placeholder="••••••••">
+  <button onclick="openPage()">دخول</button>
+</div>
+
+<div class="card" id="content">
+  <h3>❤️</h3>
+  <div class="typing" id="typing"></div>
+
+  <iframe id="videoFrame" 
+    src="https://www.youtube.com/embed/erA_wUymITs?autoplay=1"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<script>
+const PASSWORD="1/1/2000";
+
+function openPage(){
+  if(document.getElementById("pass").value===PASSWORD){
+    document.getElementById("login").style.display="none";
+    document.getElementById("content").style.display="block";
+    typeText();
+  }else{
+    alert("كلمة المرور غلط 💔");
+  }
+}
+
+// كلام رومانسي مصري (متحرك)
+const text = 
+"بحبك… ودي مش كلمة وخلاص ❤️\n"+
+"دي إحساس بيكبر جوايا كل يوم وأنا معاكي.\n"+
+"وجودك في حياتي فرق معايا كل حاجة،\n"+
+"ضحكتك بتطمني، وكلامك بيروق قلبي.\n"+
+"أنا بحبك بعفوية، بحبك بجد،\n"+
+"وبوعدك أفضّل جنبك مهما الدنيا لفّت.\n"+
+"إنتي قلبي… وقلبي اختارك إنتي وبس 🌹";
+
+let i=0;
+function typeText(){
+  if(i<text.length){
+    document.getElementById("typing").innerHTML +=
+      (text[i]==="\n" ? "<br>" : text[i]);
+    i++;
+    setTimeout(typeText,60);
+  }
+}
+</script>
+
+</body>
+  </html>
